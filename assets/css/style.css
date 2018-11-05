@@ -25,6 +25,9 @@ img {
 }
 #restart {
     visibility: hidden;
+    float: right;
+    margin-right: 150px;
+    clear: both;
 }
 body {
     background-color:;

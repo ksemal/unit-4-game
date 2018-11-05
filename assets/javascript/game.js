@@ -1,6 +1,4 @@
 $(document).ready(function() {
-           
-        var start = $("#game").html();
 
         var characterCollection = {
             kenobi: {
@@ -40,86 +38,57 @@ $(document).ready(function() {
             $(this).removeClass("character");
             var idPlayer = $(this).attr("id");
             $(".allCharacter").empty();
-            $(".allCharacter").find(".character").unbind();
+            $(".character").unbind();
             var playerHealthPoints = characterCollection[idPlayer].healthPoints;
             
-            
-            console.log(playerAttackPower);
-               
-            
-            $("#enemies").find(".character").on("click", function chooseEnemy() {
                 
-                if (playerHealthPoints < 0) {
-                    $("#result").html("You have been defeated. GAME OVER!");
-                } else if (enemyHealthPoints < 0) {
-                    $("#result").html("You have defeated " + characterCollection[idEnemy].name + ", you can choose to fight another enemy.");
-                    // $(".character").bind("click", chooseEnemy());
-                    console.log(playerAttackPower);
-                    $("#enemies").find(".character").on("click", chooseEnemy(playerAttackPower));
-                    
-                }
-                playerAttackPower = playerAttackPower + characterCollection[idPlayer].attackPower;
-                console.log(playerAttackPower);
+            $("#enemies").find(".character").on("click", function chooseEnemy() {
+                $("#enemies").find(".character").unbind();
                 $("#defender").empty();
+                
+                playerAttackPower = playerAttackPower + characterCollection[idPlayer].attackPower;
+                
                 $(this).appendTo("#defender").css("border-color", "purple");
-                //$(".character").unbind();
+                
                 var idEnemy = $(this).attr("id");
-            
                 var enemyHealthPoints = characterCollection[idEnemy].healthPoints;
+                
+                
                 $("#startFight").on("click", function fight() {
-
                     
+
                     playerHealthPoints = playerHealthPoints - characterCollection[idEnemy].counterAttackPower;
-                    enemyHealthPoints = enemyHealthPoints - playerAttackPower;
-
-                    $("#" + idEnemy + " > p").html(enemyHealthPoints);
                     $("#" + idPlayer + " > p").html(playerHealthPoints);
-                    $("#result").html("You attacked " + characterCollection[idEnemy].name + " with " + playerAttackPower + " damages. " +
-                    characterCollection[idEnemy].name + " attacked you with " + characterCollection[idEnemy].counterAttackPower + " damages." );
-
+                    enemyHealthPoints = enemyHealthPoints - playerAttackPower;
+                    $("#" + idEnemy + " > p").html(enemyHealthPoints);
                     playerAttackPower = playerAttackPower + characterCollection[idPlayer].attackPower;
-                    console.log(playerAttackPower);
 
-                    if (playerHealthPoints < 0) {
-                        $("#result").html("You have been defeated. GAME OVER!");
-                    } else if (enemyHealthPoints < 0) {
+                    if (playerHealthPoints > 0 && enemyHealthPoints > 0) {
+                        $("#result").html("You attacked " + characterCollection[idEnemy].name + " with " + playerAttackPower + " damages. " +
+                        characterCollection[idEnemy].name + " attacked you with " + characterCollection[idEnemy].counterAttackPower + " damages." );
+                    } else if (enemyHealthPoints <= 0 && playerHealthPoints > 0) {
                         $("#result").html("You have defeated " + characterCollection[idEnemy].name + ", you can choose to fight another enemy.");
-                        // $(".character").bind("click", chooseEnemy());
-                        console.log(playerAttackPower);
-                        $("#enemies").find(".character").on("click", chooseEnemy());
+                        $("#startFight").unbind();
+                        // $("#enemies").find(".character").bind("click", chooseEnemy());
+                        $("#startFight").on("click", function() {
+                            $("#result").html("You need to choose another enemy.");
+                        });  
                         
-                    }
+                    } else if (playerHealthPoints <= 0) {
+                        $("#result").html("You have been defeated. GAME OVER!");
+                        $("#restart").css("visibility", "visible");
+                        $("#startFight").unbind();
+                    }  
 
-                    
-                    
                 });
             
             });
-        
-            
-            
-            
+           
         });
         
     
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         $("#restart").on("click", function() {
-            $("#game").html(start);
+            location.reload();
        });
 });
