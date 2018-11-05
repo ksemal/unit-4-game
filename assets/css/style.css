@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 .allCharacter {
     float: left;   
 }
@@ -11,7 +14,7 @@ p {
     text-align: center;
 }
 #skywalker, #sidious, #maul, #kenobi {
-    width: 150px;
+    width: 140px;
     border: 2px solid white;
     margin-right: 5px;
 }
@@ -20,17 +23,21 @@ img {
     
 }
 #result {
-    float: right;
-    margin-right: 150px;
+    justify-content: center;
+    
 }
 #restart {
     visibility: hidden;
-    float: right;
-    margin-right: 150px;
-    clear: both;
+    display: block;
+    margin: 10px auto;
+    
 }
 body {
     background-color:;
+}
+.wrap {
+    float: right;
+    margin-right: 100px;
 }
 
 
