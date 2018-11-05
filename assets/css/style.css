@@ -1,0 +1,34 @@
+.allCharacter {
+    float: left;   
+}
+.character {
+    float: left; 
+}
+p {
+    clear: both;
+}
+#skywalker > p, #sidious > p, #maul > p, #kenobi > p {
+    text-align: center;
+}
+#skywalker, #sidious, #maul, #kenobi {
+    width: 150px;
+    border: 2px solid white;
+    margin-right: 5px;
+}
+img {
+    width: 100%;
+    
+}
+#result {
+    float: right;
+    margin-right: 150px;
+}
+#restart {
+    visibility: hidden;
+}
+body {
+    background-color:;
+}
+
+
+

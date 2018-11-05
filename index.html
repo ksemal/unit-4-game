@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="assets/javascript/game.js" ></script>
+    <title>RPG_Game</title>
+</head>
+<body>
+    <div id="game">
+        <h1>Star wars RPG</h1>
+        <div class="allCharacter">
+            <div id="kenobi" class="character">
+                <h2>Obi-wan Kenobi</h2>
+                <img src="assets/images/kenobi.png" alt="#">
+                <p>120</p>
+            </div>
+            <div id="skywalker" class="character">
+                <h2>Luke Skywalker</h2>
+                <img src="assets/images/skywalker.png" alt="#">
+                <p>100</p>
+            </div>
+            <div id="sidious" class="character">
+                <h2>Darth Sidious</h2>
+                <img src="assets/images/sidious.png" alt="#">
+                <p>150</p>
+            </div>
+            <div id="maul" class="character">
+                <h2>Darth Maul</h2>
+                <img src="assets/images/maul.png" alt="#">
+                <p>180</p>
+            </div>
+        </div>
+        <p>Your character</p>
+        <div id="your_character"></div>
+        <p>Enemies availible to attack</p>
+        <div id="enemies"></div>
+        <div id="result"></div>
+        <p>Fight section</p>
+        <div id="fight">
+            <button id="startFight">Fight</button>
+        </div>
+        <p>Defender</p>
+        <div id="defender"></div>
+        <button id="restart">Restart</button>
+    </div>
+</body>
+</html>
