@@ -47,6 +47,7 @@ $(document).ready(function() {
             $("#defender").empty();
             $("#result").html("");
             $("#enemies").find(".character").unbind();
+            $("#startFight").unbind();
             
             playerAttackPower = playerAttackPower + characterCollection[idPlayer].attackPower;
             $(this).appendTo("#defender").css("border-color", "purple");
@@ -55,13 +56,13 @@ $(document).ready(function() {
             
             
             $("#startFight").on("click", function fight() {
-            
+                
                 playerHealthPoints = playerHealthPoints - characterCollection[idEnemy].counterAttackPower;
                 $("#" + idPlayer + " > p").html(playerHealthPoints);
                 enemyHealthPoints = enemyHealthPoints - playerAttackPower;
                 $("#" + idEnemy + " > p").html(enemyHealthPoints);
                 
-                console.log($("#enemies").contents().length);
+                
                 if (playerHealthPoints > 0 && enemyHealthPoints > 0) {
                     $("#result").html("You attacked " + characterCollection[idEnemy].name + " for " + playerAttackPower + " damage. " +
                     characterCollection[idEnemy].name + " attacked you back for " + characterCollection[idEnemy].counterAttackPower + " damage.");
@@ -74,12 +75,11 @@ $(document).ready(function() {
                 } else if (enemyHealthPoints <= 0 && playerHealthPoints > 0) {
                     $("#result").html("You have defeated " + characterCollection[idEnemy].name + ", you can choose to fight another enemy.");
                     $("#startFight").unbind();
-                    $("#enemies").find(".character").on("click", chooseEnemy); 
                     $("#startFight").on("click", function() {
                         $("#defender").empty();
-                        $("#result").html("You need to choose another enemy.");
-                    }); 
-                    $("#startFight").unbind(); 
+                        $("#result").html("You need to choose another enemy.");    
+                    });
+                    $("#enemies").find(".character").on("click", chooseEnemy);
                     
                 } else if (playerHealthPoints <= 0) {
                     $("#result").html("You have been defeated. GAME OVER!");
