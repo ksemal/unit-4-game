@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 .allCharacter {
-    float: left;   
+    float: left;    
 }
 .character {
     float: left; 
@@ -14,17 +14,24 @@ p {
     text-align: center;
 }
 #skywalker, #sidious, #maul, #kenobi {
-    width: 140px;
+    width: 120px;
     border: 2px solid white;
-    margin-right: 5px;
+    margin: 15px 5px 5px 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.452);
+    padding: 2px;
 }
 img {
-    width: 100%;
-    
+    width: 100%;   
 }
 #result {
+    margin-top: 60px;
     justify-content: center;
-    
+    width: 400px;
+    line-height: 1.6;
+    font-size: 20px;
+    text-align: center;
+    color: aquamarine;   
 }
 #restart {
     visibility: hidden;
@@ -33,12 +40,47 @@ img {
     
 }
 body {
-    background-color:;
+    background-color: black;
+    background-image: url("../images/star-wars.jpg");
+    color: white;
+    font-size: 15px; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .wrap {
     float: right;
-    margin-right: 100px;
+    margin-right: 20px; 
 }
-
-
+@font-face {
+    font-family: Starjedi;
+    src: url('Starjedi.ttf'), url('Starjedi.ttf') format('ttf');;
+}
+h1 {
+    font-family: 'Starjedi';
+    font-size: 80px;
+    float: right;
+    width: 500px;
+    text-align: end;
+    color: white;
+    right: 3%;
+    top:3%;
+    position: fixed;
+}
+h2 {
+    padding-bottom: 5px;
+}
+.title {
+    margin: 0px 0px 5px 0px;
+}
+#game {
+    width: 1280px;
+}
+button {
+    margin-bottom: 15px;
+    margin-top: 5px;
+    width: 90px;
+    height: 35px;
+    color: white;
+    font-size: 16px;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+}
 

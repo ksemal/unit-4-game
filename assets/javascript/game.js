@@ -33,9 +33,9 @@ $(document).ready(function() {
         var restOfCharacters;
         $('.character').each(function() {
 
-            restOfCharacters += $(this).appendTo("#enemies").css("border-color", "red");   
+            restOfCharacters += $(this).appendTo("#enemies").css("border-color", "rgb(207, 43, 2)");   
         });
-        $(this).appendTo("#your_character").css("border-color", "green");
+        $(this).appendTo("#your_character").css("border-color", "aquamarine");
         $(this).removeClass("character");
         var idPlayer = $(this).attr("id");
         $(".allCharacter").empty();
@@ -50,7 +50,7 @@ $(document).ready(function() {
             $("#startFight").unbind();
             
             playerAttackPower = playerAttackPower + characterCollection[idPlayer].attackPower;
-            $(this).appendTo("#defender").css("border-color", "purple");
+            $(this).appendTo("#defender").css("border-color", "black");
             var idEnemy = $(this).attr("id");
             var enemyHealthPoints = characterCollection[idEnemy].healthPoints;
             
